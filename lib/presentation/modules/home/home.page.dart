@@ -2,7 +2,7 @@ import 'package:fint/presentation/widgets/appbars/appbar.dart';
 import 'package:fint/presentation/widgets/buttons/large.button.dart';
 import 'package:flutter/material.dart';
 
-class HomePage extends StatelessWidget{
+class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
   @override
@@ -12,20 +12,13 @@ class HomePage extends StatelessWidget{
       appBar: CustomAppBar(title: "Home"),
       body: SafeArea(
         child: SingleChildScrollView(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              LargeButton(
-                title: "Gerar Lista", 
-                onTap: (){},
-                icon: Icons.add,
-              ),
-              LargeButton(
-                title: "Lista", 
-                onTap: (){},
-                icon: Icons.list,
-              ),
-            ],
+          child: Padding(
+            padding: const EdgeInsets.all(16),
+            child: Column(
+              children: [
+                LargeButton(title: "Listas", onTap: () {}, icon: Icons.list),
+              ],
+            ),
           ),
         ),
       ),
@@ -37,8 +30,8 @@ class HomePage extends StatelessWidget{
         width: 80,
         height: 80,
         child: InkWell(
-          onTap: (){},
-          child: const Icon(Icons.person, color: Colors.white),
+          onTap: () => openModal(context: context),
+          child: const Icon(Icons.add, color: Colors.white),
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
@@ -50,4 +43,12 @@ class HomePage extends StatelessWidget{
     );
   }
 
+  void openModal({required BuildContext context}) {
+    showBottomSheet(
+      context: context,
+      builder: (_) {
+        return Container();
+      },
+    );
+  }
 }

@@ -12,9 +12,8 @@ class LargeButton extends StatelessWidget{
     return InkWell(
       onTap: onTap(),
       child: Container(
-        width: MediaQuery.of(context).size.width / 3,
         margin: const EdgeInsets.symmetric(
-          vertical: 50
+          vertical: 16
         ),
         padding: const EdgeInsets.symmetric(
           horizontal: 20,
